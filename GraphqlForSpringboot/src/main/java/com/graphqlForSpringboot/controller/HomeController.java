@@ -99,10 +99,20 @@ public class HomeController {
 	@PostMapping("/findAllPersonByEmail2")
 	public ResponseEntity<?> findAllPersonByEmail2(@RequestBody String query)
 	{
+		System.out.println("your query : "+query);
 //		String query="";
 		ExecutionResult result=graphql.execute(query);
 		return new ResponseEntity<Object>(result,HttpStatus.OK);
 	}
+	//query should like this
+	/*{
+		findPersonByEmail(email : "atulpisal.ap@gmail.com") {
+				name
+				email
+			}
+		}
+	*/
+	
 	
 	@PostMapping("/addPerson")
 	public ResponseEntity<?> addPerson(@RequestBody List<Person> personList)
