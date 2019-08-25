@@ -96,6 +96,14 @@ public class HomeController {
 		return new ResponseEntity<Object>(result,HttpStatus.OK);
 	}
 	
+	@PostMapping("/findAllPersonByEmail2")
+	public ResponseEntity<?> findAllPersonByEmail2(@RequestBody String query)
+	{
+//		String query="";
+		ExecutionResult result=graphql.execute(query);
+		return new ResponseEntity<Object>(result,HttpStatus.OK);
+	}
+	
 	@PostMapping("/addPerson")
 	public ResponseEntity<?> addPerson(@RequestBody List<Person> personList)
 	{
